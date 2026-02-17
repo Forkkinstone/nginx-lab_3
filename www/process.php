@@ -7,6 +7,10 @@ $email = htmlspecialchars($_POST['userEmail'] ?? '');
 $_SESSION['username'] = $username;
 $_SESSION['email'] = $email;
 
+$line = $username . ";" . $email . "\n";
+
+file_put_contents("data.txt", $line, FILE_APPEND);
+
 header("Location: index.php");
 exit();
 ?>
