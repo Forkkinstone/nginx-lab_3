@@ -39,12 +39,12 @@
 
     </style>
     <meta charset="UTF-8">
-    <title>Lab_2 - Var_14</title>
+    <title>Lab_3 - Var_14</title>
 </head>
 <body>
     <h2>Заявка в волонтёры</h2>
 
-    <form id="volunteerForm">
+    <form id="volunteerForm" action="process.php" method="POST">
         Имя: <input type="text" name="userName" required><br><br>
 
         Возраст: <input type="number" name="userAge" min="7" required><br><br>
@@ -62,7 +62,7 @@
         <input type="radio" name="helpType" value="Очно" checked> Очно<br>
         <input type="radio" name="helpType" value="Удаленно"> Удаленно<br><br>
 
-        <button type="submit">Отправить</button>
+        <button type="submit">Отправить в PHP</button>
     </form>
 
     <div id="result" style="margin-top: 20px;"></div>
@@ -73,28 +73,9 @@
         });
     
         document.getElementById("volunteerForm").addEventListener("submit", function(e) {
-            e.preventDefault(); 
 
             const name = this.userName.value;
-            const age = this.userAge.value;
-            const dir = this.direction.value;
-            const exp = this.hasExperience.checked ? "Да" : "Нет";
-            const type = this.helpType.value;
-
-            if (age <= 0) {
-                alert("Возраст должен быть положительным числом!");
-                return;
-            }
-
-            const info = "<h3>Данные заявки:</h3>" +
-                         "Имя: " + name + "<br>" +
-                         "Возраст: " + age + "<br>" +
-                         "Направление: " + dir + "<br>" +
-                         "Опыт: " + exp + "<br>" +
-                         "Вид помощи: " + type;
-
-                         
-            document.getElementById("result").innerHTML = info;
+            alert(`Вы ввели имя: ${name}. Теперь данные обработает сервер`)
 
         });
 
