@@ -36,6 +36,14 @@ session_start();
 <div class="container">
     <h2>Главная страница</h2>
 
+    <?php if(isset($_SESSION['errors'])): ?>
+    <ul style="color:red; list-style: none; padding: 10px; border: 1px solid red; border-radius: 5px; background: #fff5f5;">
+        <?php foreach($_SESSION['errors'] as $error): ?>
+            <li>⚠️ <?= $error ?></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php unset($_SESSION['errors']); // Удаляем ошибки из сессии после показа ?><?php endif; ?>
+
     <?php if(isset($_SESSION['username'])): ?>
         <p>✅ Данные из сессии успешно получены:</p>
         <ul>
